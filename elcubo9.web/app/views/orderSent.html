@@ -1,0 +1,37 @@
+﻿<div class="container-fluid">
+    <h1 class="text-center">Orden Enviada</h1>
+    <div ng-repeat="item in order.Items">
+        <div class="row">
+
+            <div class="col-xs-8">
+                <div class="title">{{item.Title}}</div>
+                <div class="subtitle">{{item.Subtitle}}</div>
+            </div>
+            <div class="col-xs-4">
+                <div class="price">
+                    {{Symbol}} {{item.Price}}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="margin">
+        <div class="alert alert-info text-center lead" ng-hide="order.OrderStatus!=1">
+            Orden Enviada al Establecimiento
+        </div>
+        <div class="alert alert-success text-center lead" ng-hide="order.OrderStatus!=2">
+            Orden Recibida por el Establecimiento
+        </div>
+        <div class="alert alert-success text-center lead" ng-hide="order.OrderStatus!=5">
+            Orden Recibida por el Establecimiento
+        </div>
+        <div class="alert alert-success text-center lead" ng-hide="order.OrderStatus!=3">
+            Orden Entregada
+        </div>
+        <div class="alert alert-danger text-center lead" ng-hide="order.OrderStatus!=4">
+            Orden Inválida, Intenta de Nuevo
+        </div>
+        <p>
+            <a href="" ng-href="#/menu/{{order.CustomerID}}/{{order.TableNumber}}" class="btn btn-block btn-primary btn-lg">Nueva Orden</a>
+        </p>
+    </div>
+</div>

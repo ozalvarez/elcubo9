@@ -1,0 +1,110 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "elcubo9.web", "elcubo9.web\elcubo9.web.csproj", "{D494FB3F-4525-42C9-A2D0-B281A28EDA50}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "elcubo9.api", "elcubo9.api\elcubo9.api.csproj", "{DBAB9F77-00D4-473E-B22C-588DC9012D8B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "elcubo9.bll", "elcubo9.bll\elcubo9.bll.csproj", "{8C7D932C-01DA-47E5-BA52-85230D93CB9D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "elcubo9.data", "elcubo9.data\elcubo9.data.csproj", "{EC6601D5-8E13-4360-AD93-DF150563FD6D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "elcubo9.customer", "elcubo9.customer\elcubo9.customer.csproj", "{C5A3B0DE-6C65-4A48-8D62-878C4ABA8A9C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "elcubo9.admin", "elcubo9.admin\elcubo9.admin.csproj", "{A3F8C792-E3D3-4945-A5A1-B999141C8980}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "elcubo9.data.binding", "elcubo9.data.binding\elcubo9.data.binding.csproj", "{8DD8FFD2-180B-4F43-B377-D887EF879515}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "webs", "webs", "{037D7E06-BBF7-4E6B-A073-AC46424B056A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{7830EECC-2D91-40A0-8F52-995AD4039A97}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "elcubo9.bll.test", "elcubo9.bll.test\elcubo9.bll.test.csproj", "{97C4BFE4-61A4-4954-A1AE-4A9B610638DF}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 9
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://thewall9.visualstudio.com/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = elcubo9.web\\elcubo9.web.csproj
+		SccProjectTopLevelParentUniqueName1 = elcubo9.sln
+		SccProjectName1 = elcubo9.web
+		SccLocalPath1 = elcubo9.web
+		SccProjectUniqueName2 = elcubo9.api\\elcubo9.api.csproj
+		SccProjectTopLevelParentUniqueName2 = elcubo9.sln
+		SccProjectName2 = elcubo9.api
+		SccLocalPath2 = elcubo9.api
+		SccProjectUniqueName3 = elcubo9.bll\\elcubo9.bll.csproj
+		SccProjectName3 = elcubo9.bll
+		SccLocalPath3 = elcubo9.bll
+		SccProjectUniqueName4 = elcubo9.data\\elcubo9.data.csproj
+		SccProjectName4 = elcubo9.data
+		SccLocalPath4 = elcubo9.data
+		SccProjectUniqueName5 = elcubo9.customer\\elcubo9.customer.csproj
+		SccProjectTopLevelParentUniqueName5 = elcubo9.sln
+		SccProjectName5 = elcubo9.customer
+		SccLocalPath5 = elcubo9.customer
+		SccProjectUniqueName6 = elcubo9.admin\\elcubo9.admin.csproj
+		SccProjectTopLevelParentUniqueName6 = elcubo9.sln
+		SccProjectName6 = elcubo9.admin
+		SccLocalPath6 = elcubo9.admin
+		SccProjectUniqueName7 = elcubo9.data.binding\\elcubo9.data.binding.csproj
+		SccProjectName7 = elcubo9.data.binding
+		SccLocalPath7 = elcubo9.data.binding
+		SccProjectUniqueName8 = elcubo9.bll.test\\elcubo9.bll.test.csproj
+		SccProjectTopLevelParentUniqueName8 = elcubo9.sln
+		SccProjectName8 = elcubo9.bll.test
+		SccLocalPath8 = elcubo9.bll.test
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D494FB3F-4525-42C9-A2D0-B281A28EDA50}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D494FB3F-4525-42C9-A2D0-B281A28EDA50}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D494FB3F-4525-42C9-A2D0-B281A28EDA50}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D494FB3F-4525-42C9-A2D0-B281A28EDA50}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DBAB9F77-00D4-473E-B22C-588DC9012D8B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DBAB9F77-00D4-473E-B22C-588DC9012D8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DBAB9F77-00D4-473E-B22C-588DC9012D8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DBAB9F77-00D4-473E-B22C-588DC9012D8B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C7D932C-01DA-47E5-BA52-85230D93CB9D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C7D932C-01DA-47E5-BA52-85230D93CB9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C7D932C-01DA-47E5-BA52-85230D93CB9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C7D932C-01DA-47E5-BA52-85230D93CB9D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC6601D5-8E13-4360-AD93-DF150563FD6D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC6601D5-8E13-4360-AD93-DF150563FD6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC6601D5-8E13-4360-AD93-DF150563FD6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC6601D5-8E13-4360-AD93-DF150563FD6D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C5A3B0DE-6C65-4A48-8D62-878C4ABA8A9C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5A3B0DE-6C65-4A48-8D62-878C4ABA8A9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5A3B0DE-6C65-4A48-8D62-878C4ABA8A9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5A3B0DE-6C65-4A48-8D62-878C4ABA8A9C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A3F8C792-E3D3-4945-A5A1-B999141C8980}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3F8C792-E3D3-4945-A5A1-B999141C8980}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3F8C792-E3D3-4945-A5A1-B999141C8980}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3F8C792-E3D3-4945-A5A1-B999141C8980}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8DD8FFD2-180B-4F43-B377-D887EF879515}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8DD8FFD2-180B-4F43-B377-D887EF879515}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8DD8FFD2-180B-4F43-B377-D887EF879515}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8DD8FFD2-180B-4F43-B377-D887EF879515}.Release|Any CPU.Build.0 = Release|Any CPU
+		{97C4BFE4-61A4-4954-A1AE-4A9B610638DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97C4BFE4-61A4-4954-A1AE-4A9B610638DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97C4BFE4-61A4-4954-A1AE-4A9B610638DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97C4BFE4-61A4-4954-A1AE-4A9B610638DF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D494FB3F-4525-42C9-A2D0-B281A28EDA50} = {037D7E06-BBF7-4E6B-A073-AC46424B056A}
+		{DBAB9F77-00D4-473E-B22C-588DC9012D8B} = {037D7E06-BBF7-4E6B-A073-AC46424B056A}
+		{C5A3B0DE-6C65-4A48-8D62-878C4ABA8A9C} = {037D7E06-BBF7-4E6B-A073-AC46424B056A}
+		{A3F8C792-E3D3-4945-A5A1-B999141C8980} = {037D7E06-BBF7-4E6B-A073-AC46424B056A}
+		{97C4BFE4-61A4-4954-A1AE-4A9B610638DF} = {7830EECC-2D91-40A0-8F52-995AD4039A97}
+	EndGlobalSection
+EndGlobal

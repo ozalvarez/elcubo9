@@ -1,0 +1,89 @@
+﻿@bg: #f7f7f7;
+@bgDefault: #ff1117;
+
+body {
+    background-color: #FFF;
+}
+
+#home {
+    padding: 10px;
+
+    img {
+        margin-top: 150px;
+    }
+}
+.btn {
+    border-radius: 0px;
+}
+
+.btn-primary {
+    border-color: #bd1313;
+    background-color: @bgDefault;
+
+    &:hover, &:focus, &:active, &.active {
+        background-color: @bgDefault;
+        border-color: @bgDefault;
+    }
+}
+
+.btn-facebook {
+    background-color: #3b5998;
+    color: #FFF;
+
+    &:hover, &:focus, &:active, &.active {
+        background-color: #3b5998;
+        color: #FFF;
+    }
+}
+
+.btn-google-plus {
+    background-color: #d34332;
+    color: #FFF;
+
+    &:hover, &:focus, &:active, &.active {
+        background-color: #d34332;
+        color: #FFF;
+    }
+}
+
+.form-group {
+    margin-bottom: 8px;
+}
+
+.form-control {
+    border-radius: 0px;
+}
+
+.left-inner-addon {
+    position: relative;
+
+    input {
+        padding-left: 30px;
+    }
+
+    i {
+        position: absolute;
+        padding: 15px 12px;
+        pointer-events: none;
+    }
+}
+
+/*ANGULARJS*/
+[ng\:cloak], [ng-cloak], .ng-cloak {
+    display: none;
+}
+/*--------------Extra small devices Phones (<768px)---------------*/
+@media (max-width: 767px) {
+    .padding {
+        padding: 5px;
+    }
+
+    .margin {
+        margin: 5px;
+    }
+
+    h1 {
+        font-size: 19px;
+        margin-top: 10px;
+    }
+}

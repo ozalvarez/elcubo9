@@ -1,0 +1,16 @@
+﻿<div class="container-fluid">
+    <h1 class="text-center">Mis Ordenes</h1>
+    <div ng-repeat="item in data" class="list-click-item" ng-click="go('/orderSent/'+item.OrderID)">
+        <div class="row">
+            <div class="col-xs-6">
+                <span> {{item.DateOrder | fromNow}}</span>
+            </div>
+            <div class="col-xs-6 text-right">
+                <label class="label label-info" ng-if="item.OrderStatus==1">No ha sido recibida</label>
+                <label class="label label-primary" ng-if="item.OrderStatus==2">En preparación</label>
+                <label class="label label-success" ng-if="item.OrderStatus==3">Entregada</label>
+                <label class="label label-danger" ng-if="item.OrderStatus==4">Inválida</label>
+            </div>
+        </div>
+    </div>
+</div>

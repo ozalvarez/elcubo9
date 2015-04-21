@@ -1,0 +1,8 @@
+﻿<div class="container-fluid" id="intern">
+    <h1 class="text-center">¿Dónde estas?</h1>
+    <div ng-repeat="item in data">
+        <div ng-click="go('/menu/'+item.CustomerID)" class="list-click-item">
+            <div class="title">{{item.CustomerName}}</div>
+        </div>
+    </div>
+</div>

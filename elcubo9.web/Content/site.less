@@ -1,0 +1,283 @@
+﻿@bg: #f7f7f7;
+
+body {
+    background-color: @bg;
+    margin-top: 60px;
+}
+
+.container-fluid {
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 3px;
+    padding-right: 3px;
+
+    .row {
+        margin-left: -0px;
+        margin-right: -0px;
+
+        .col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
+            min-height: 1px;
+            padding-left: 5px;
+            padding-right: 5px;
+            position: relative;
+        }
+    }
+}
+
+.list-click-item {
+    background-color: #FFF;
+    border-bottom: 1px solid @bg;
+    cursor: pointer;
+    min-height: 65px;
+    padding: 5px;
+
+    .title, .price {
+    }
+
+    .title {
+        font-size: 18px;
+    }
+}
+
+h1 {
+    font-size: 19px;
+    margin-top: 0px;
+}
+
+#menu {
+    #accordion {
+        padding-bottom: 30px;
+
+        .panel-heading {
+            padding: 0px;
+
+            a {
+                padding: 15px;
+                text-decoration: none;
+            }
+        }
+
+        .panel-body {
+            padding: 0px;
+        }
+    }
+}
+/*EL CUBO 9*/
+.title {
+    font-size: 19px;
+}
+
+.price {
+    font-size: 15px;
+    font-weight: bold;
+    text-align: right;
+    padding-right: 5px;
+}
+
+.subtitle {
+    font-size: 14px;
+    color: #808080;
+    padding-left: 5px;
+}
+
+
+
+.btn-bottom {
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+}
+/*BOOSTRAP*/
+@bgDefault: #ff1117;
+@bgHighlight: #fff;
+@colDefault: #fff;
+@colHighlight: #000;
+
+.navbar {
+    margin-bottom: 5px;
+}
+
+.navbar-toggle {
+    margin-right: 5px;
+}
+
+.navbar-default {
+    background-color: @bgDefault;
+    border-color: @bgHighlight;
+
+
+    .navbar-brand {
+        color: @colDefault;
+        padding: 5px;
+
+        &:hover, &:focus {
+            color: @colHighlight;
+        }
+    }
+
+    .navbar-text {
+        color: @colDefault;
+    }
+
+    .navbar-nav {
+
+        > li {
+            > a {
+                color: @colDefault;
+
+                &:hover, &:focus {
+                    color: @colHighlight;
+                }
+            }
+        }
+
+        > .active {
+            > a, > a:hover, > a:focus {
+                color: @colHighlight;
+                background-color: @bgHighlight;
+            }
+        }
+
+        > .open {
+            > a, > a:hover, > a:focus {
+                color: @colHighlight;
+                background-color: @bgHighlight;
+            }
+        }
+    }
+
+    .navbar-toggle {
+        border-color: @bgHighlight;
+
+        &:hover, &:focus {
+            background-color: @colHighlight;
+        }
+
+        .icon-bar {
+            background-color: @colDefault;
+        }
+    }
+
+    .navbar-collapse,
+    .navbar-form {
+        border-color: @colDefault;
+    }
+
+    .navbar-link {
+        color: @colDefault;
+
+        &:hover {
+            color: @colHighlight;
+        }
+    }
+}
+
+.btn {
+    border-radius: 0px;
+}
+
+.btn-primary {
+    border-color: #bd1313;
+    background-color: @bgDefault;
+
+    &:hover, &:focus, &:active, &.active {
+        background-color: @bgDefault;
+        border-color: @bgDefault;
+    }
+}
+
+.btn-facebook {
+    background-color: #3b5998;
+    color: #FFF;
+
+    &:hover, &:focus, &:active, &.active {
+        background-color: #3b5998;
+        color: #FFF;
+    }
+}
+
+.btn-google-plus {
+    background-color: #d34332;
+    color: #FFF;
+
+    &:hover, &:focus, &:active, &.active {
+        background-color: #d34332;
+        color: #FFF;
+    }
+}
+
+.form-group {
+    margin-bottom: 8px;
+}
+
+.form-control {
+    border-radius: 0px;
+}
+
+.left-inner-addon {
+    position: relative;
+
+    input {
+        padding-left: 30px;
+    }
+
+    i {
+        position: absolute;
+        padding: 15px 12px;
+        pointer-events: none;
+    }
+}
+
+.list-group-item {
+    &.active, &.active:hover, &.active:focus {
+        background-color: @bgDefault;
+        border-color: @bgDefault;
+    }
+}
+/*ANGULARJS*/
+[ng\:cloak], [ng-cloak], .ng-cloak {
+    display: none;
+}
+/*--------------Extra small devices Phones (<768px)---------------*/
+@media (max-width: 767px) {
+    .padding {
+        padding: 5px;
+    }
+
+    .margin {
+        margin: 5px;
+    }
+    /*BOOSTRAP*/
+    .navbar-default .navbar-nav .open .dropdown-menu {
+        > li > a {
+            color: @colDefault;
+
+            &:hover, &:focus {
+                color: @colHighlight;
+            }
+        }
+
+        > .active {
+            > a, > a:hover, > a:focus {
+                color: @colHighlight;
+                background-color: @bgHighlight;
+            }
+        }
+    }
+
+
+
+    .navbar-nav {
+        .navbar-header {
+            text-align: center;
+            color: #742020;
+        }
+
+        .divider {
+            height: 1px;
+            margin: 9px 0;
+            overflow: hidden;
+            background-color: #e5e5e5;
+        }
+    }
+}

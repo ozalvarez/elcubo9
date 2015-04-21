@@ -1,0 +1,30 @@
+﻿<section id="login">
+    <h1 class="text-center">Iniciar Sesión</h1>
+    <button class="btn btn-facebook btn-lg btn-block" type="button" data-ng-click="authExternalProvider('Facebook')">
+        <i class="fa fa-facebook"></i> | Entrar con Facebook
+    </button>
+    <button class="btn btn-google-plus btn-lg btn-block" type="button" data-ng-click="authExternalProvider('Google')">
+        <i class="fa fa-google-plus"></i> | Entrar con Google
+    </button>
+    <p class="small text-center">o con email</p>
+    <form ng-submit="login()" class="margin">
+        <div class="form-group left-inner-addon">
+            <i class="glyphicon glyphicon-envelope"></i>
+            <input type="email" class="form-control input-lg" placeholder="Email" ng-model="loginData.userName" required autofocus>
+        </div>
+        <div class="form-group left-inner-addon">
+            <i class="glyphicon glyphicon-lock"></i>
+            <input type="password" class="form-control input-lg" placeholder="Clave" ng-model="loginData.password" required>
+        </div>
+        <div class="form-group">
+            <button class="btn btn-block btn-primary btn-lg" type="submit" ng-disabled="loggingIn">
+                Iniciar Sesión
+            </button>
+        </div>
+        <div class="form-group">
+            <p class="small text-center">
+                Haciendo click en "Entrar" con tu Email, Facebook o Google aceptas los <a href="http://blog.elcubo9.com/terminos" target="_blank">Términos y Condiciones</a>
+            </p>
+        </div>
+    </form>
+</section>

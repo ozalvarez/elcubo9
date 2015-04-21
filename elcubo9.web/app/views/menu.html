@@ -1,0 +1,35 @@
+﻿<section class="container-fluid" id="menu">
+    <div class="panel-group" id="accordion">
+        <div class="panel panel-default" ng-repeat="item in data">
+            <div class="panel-heading">
+                <div class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="" data-target="#collapse-{{item.MenuTagID}}" style="display:block;">
+                        {{item.MenuTagName}}
+                    </a>
+                </div>
+            </div>
+            <div id="collapse-{{item.MenuTagID}}" class="panel-collapse collapse out">
+                <div class="panel-body">
+                    <div ng-repeat="menu in item.Menus" class="list-click-item" ng-click="select(menu)">
+                        <div class="row">
+                            <div class="col-xs-8">
+                                <div class="title">
+                                    {{menu.Title}}
+                                </div>
+                            </div>
+                            <div class="col-xs-4">
+                                <div class="price">
+                                    <span>{{Symbol}}</span> {{menu.Price}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="subtitle">{{menu.Subtitle}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a href="" class="btn btn-block btn-primary btn-lg btn-bottom" ng-href="#/order" ng-show="order.Items.length>0">
+        Ordernar Pedido
+    </a>
+</section>

@@ -1,0 +1,114 @@
+﻿<div id="item" class="container-fluid">
+    <div class="row">
+        <div class="col-xs-8">
+            <div class="title">{{data.Title}}</div>
+        </div>
+        <div class="col-xs-4">
+            <div class="price">{{Symbol}} {{data.Price}}</div>
+        </div>
+    </div>
+    <div class="subtitle">{{data.Subtitle}}</div>
+    <div class="list-click-item" ng-click="openQuantity()">
+        <div class="title">Cantidad</div>
+        <div class="subtitle">
+            {{orderMenu.Quantity}}
+        </div>
+    </div>
+    <div ng-repeat="item in data.Items" class="list-click-item" ng-click="openAdditionalItems(item)">
+        <div class="title">{{item.MenuAdditionalName}}</div>
+        <div class="subtitle" ng-if="item.Required">
+            Seleccionar
+        </div>
+        <div class="subtitle" ng-if="!item.Required">
+            Opcional
+        </div>
+        <div class="subtitle">
+            <span ng-repeat="item2 in item.Items" ng-show="item2.Active">{{item2.AdditionalItemName}}, </span>
+        </div>
+    </div>
+    <div class="list-click-item" ng-click="openAdditionalInfo()">
+        <div class="title">Aclaraciones</div>
+        <div class="subtitle" ng-hide="orderMenu.AdditionalInfo">
+            Opcional
+        </div>
+        <div class="subtitle" ng-show="orderMenu.AdditionalInfo">
+            {{orderMenu.AdditionalInfo}}
+        </div>
+    </div>
+    <button class="btn btn-block btn-primary btn-lg" ng-click="addToOrder()">
+        Agregar a mi pedido
+    </button>
+</div>
+<div class="modal fade" id="modal-quantity" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Cantidad</h4>
+            </div>
+            <div class="modal-body">
+                <input type="number" class="form-control input-lg" ng-model="orderMenu.Quantity" />
+            </div>
+            <div class="modal-footer">
+                <div class="row">
+                    <div class="col-xs-5">
+                        <button type="button" class="btn btn-default btn-block btn-lg" data-dismiss="modal">Cerrar</button>
+                    </div>
+                    <div class="col-xs-7">
+                        <button type="button" class="btn btn-primary btn-block btn-lg" data-dismiss="modal">Aceptar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="modal-additional-info" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Aclaraciones</h4>
+            </div>
+            <div class="modal-body">
+                <textarea class="form-control" ng-model="orderMenu.AdditionalInfo"></textarea>
+            </div>
+            <div class="modal-footer">
+                <div class="row">
+                    <div class="col-xs-5">
+                        <button type="button" class="btn btn-default btn-block btn-lg" data-dismiss="modal">Cerrar</button>
+                    </div>
+                    <div class="col-xs-7">
+                        <button type="button" class="btn btn-primary btn-block btn-lg" data-dismiss="modal">Aceptar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="modal-additional-items" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">{{additional.MenuAdditionalName}}</h4>
+            </div>
+            <div class="modal-body">
+                <div class="list-group">
+                    <a href="" class="list-group-item" ng-class="{'active':item.Active}" ng-repeat="item in additional.Items" ng-click="item.Active=(item.Active==null?true:!item.Active)">
+                        {{item.AdditionalItemName}} <small ng-if="item.Price>0">(+{{Symbol}}{{item.Price}})</small>
+                    </a>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="row">
+                    <div class="col-xs-5">
+                        <button type="button" class="btn btn-default btn-block btn-lg" data-dismiss="modal">Cerrar</button>
+                    </div>
+                    <div class="col-xs-7">
+                        <button type="button" class="btn btn-primary btn-block btn-lg" data-dismiss="modal">Aceptar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

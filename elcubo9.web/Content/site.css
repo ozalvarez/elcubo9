@@ -1,0 +1,273 @@
+﻿body {
+  background-color: #f7f7f7;
+  margin-top: 60px;
+}
+.container-fluid {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 3px;
+  padding-right: 3px;
+}
+.container-fluid .row {
+  margin-left: 0px;
+  margin-right: 0px;
+}
+.container-fluid .row .col-xs-1,
+.container-fluid .row .col-sm-1,
+.container-fluid .row .col-md-1,
+.container-fluid .row .col-lg-1,
+.container-fluid .row .col-xs-2,
+.container-fluid .row .col-sm-2,
+.container-fluid .row .col-md-2,
+.container-fluid .row .col-lg-2,
+.container-fluid .row .col-xs-3,
+.container-fluid .row .col-sm-3,
+.container-fluid .row .col-md-3,
+.container-fluid .row .col-lg-3,
+.container-fluid .row .col-xs-4,
+.container-fluid .row .col-sm-4,
+.container-fluid .row .col-md-4,
+.container-fluid .row .col-lg-4,
+.container-fluid .row .col-xs-5,
+.container-fluid .row .col-sm-5,
+.container-fluid .row .col-md-5,
+.container-fluid .row .col-lg-5,
+.container-fluid .row .col-xs-6,
+.container-fluid .row .col-sm-6,
+.container-fluid .row .col-md-6,
+.container-fluid .row .col-lg-6,
+.container-fluid .row .col-xs-7,
+.container-fluid .row .col-sm-7,
+.container-fluid .row .col-md-7,
+.container-fluid .row .col-lg-7,
+.container-fluid .row .col-xs-8,
+.container-fluid .row .col-sm-8,
+.container-fluid .row .col-md-8,
+.container-fluid .row .col-lg-8,
+.container-fluid .row .col-xs-9,
+.container-fluid .row .col-sm-9,
+.container-fluid .row .col-md-9,
+.container-fluid .row .col-lg-9,
+.container-fluid .row .col-xs-10,
+.container-fluid .row .col-sm-10,
+.container-fluid .row .col-md-10,
+.container-fluid .row .col-lg-10,
+.container-fluid .row .col-xs-11,
+.container-fluid .row .col-sm-11,
+.container-fluid .row .col-md-11,
+.container-fluid .row .col-lg-11,
+.container-fluid .row .col-xs-12,
+.container-fluid .row .col-sm-12,
+.container-fluid .row .col-md-12,
+.container-fluid .row .col-lg-12 {
+  min-height: 1px;
+  padding-left: 5px;
+  padding-right: 5px;
+  position: relative;
+}
+.list-click-item {
+  background-color: #FFF;
+  border-bottom: 1px solid #f7f7f7;
+  cursor: pointer;
+  min-height: 65px;
+  padding: 5px;
+}
+.list-click-item .title {
+  font-size: 18px;
+}
+h1 {
+  font-size: 19px;
+  margin-top: 0px;
+}
+#menu #accordion {
+  padding-bottom: 30px;
+}
+#menu #accordion .panel-heading {
+  padding: 0px;
+}
+#menu #accordion .panel-heading a {
+  padding: 15px;
+  text-decoration: none;
+}
+#menu #accordion .panel-body {
+  padding: 0px;
+}
+/*EL CUBO 9*/
+.title {
+  font-size: 19px;
+}
+.price {
+  font-size: 15px;
+  font-weight: bold;
+  text-align: right;
+  padding-right: 5px;
+}
+.subtitle {
+  font-size: 14px;
+  color: #808080;
+  padding-left: 5px;
+}
+.btn-bottom {
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+}
+/*BOOSTRAP*/
+.navbar {
+  margin-bottom: 5px;
+}
+.navbar-toggle {
+  margin-right: 5px;
+}
+.navbar-default {
+  background-color: #ff1117;
+  border-color: #ffffff;
+}
+.navbar-default .navbar-brand {
+  color: #ffffff;
+  padding: 5px;
+}
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+  color: #000000;
+}
+.navbar-default .navbar-text {
+  color: #ffffff;
+}
+.navbar-default .navbar-nav > li > a {
+  color: #ffffff;
+}
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+  color: #000000;
+}
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+  color: #000000;
+  background-color: #ffffff;
+}
+.navbar-default .navbar-nav > .open > a,
+.navbar-default .navbar-nav > .open > a:hover,
+.navbar-default .navbar-nav > .open > a:focus {
+  color: #000000;
+  background-color: #ffffff;
+}
+.navbar-default .navbar-toggle {
+  border-color: #ffffff;
+}
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus {
+  background-color: #000000;
+}
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: #ffffff;
+}
+.navbar-default .navbar-collapse,
+.navbar-default .navbar-form {
+  border-color: #ffffff;
+}
+.navbar-default .navbar-link {
+  color: #ffffff;
+}
+.navbar-default .navbar-link:hover {
+  color: #000000;
+}
+.btn {
+  border-radius: 0px;
+}
+.btn-primary {
+  border-color: #bd1313;
+  background-color: #ff1117;
+}
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary.active {
+  background-color: #ff1117;
+  border-color: #ff1117;
+}
+.btn-facebook {
+  background-color: #3b5998;
+  color: #FFF;
+}
+.btn-facebook:hover,
+.btn-facebook:focus,
+.btn-facebook:active,
+.btn-facebook.active {
+  background-color: #3b5998;
+  color: #FFF;
+}
+.btn-google-plus {
+  background-color: #d34332;
+  color: #FFF;
+}
+.btn-google-plus:hover,
+.btn-google-plus:focus,
+.btn-google-plus:active,
+.btn-google-plus.active {
+  background-color: #d34332;
+  color: #FFF;
+}
+.form-group {
+  margin-bottom: 8px;
+}
+.form-control {
+  border-radius: 0px;
+}
+.left-inner-addon {
+  position: relative;
+}
+.left-inner-addon input {
+  padding-left: 30px;
+}
+.left-inner-addon i {
+  position: absolute;
+  padding: 15px 12px;
+  pointer-events: none;
+}
+.list-group-item.active,
+.list-group-item.active:hover,
+.list-group-item.active:focus {
+  background-color: #ff1117;
+  border-color: #ff1117;
+}
+/*ANGULARJS*/
+[ng\:cloak],
+[ng-cloak],
+.ng-cloak {
+  display: none;
+}
+/*--------------Extra small devices Phones (<768px)---------------*/
+@media (max-width: 767px) {
+  .padding {
+    padding: 5px;
+  }
+  .margin {
+    margin: 5px;
+  }
+  /*BOOSTRAP*/
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+    color: #ffffff;
+  }
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+    color: #000000;
+  }
+  .navbar-default .navbar-nav .open .dropdown-menu > .active > a,
+  .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
+  .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+    color: #000000;
+    background-color: #ffffff;
+  }
+  .navbar-nav .navbar-header {
+    text-align: center;
+    color: #742020;
+  }
+  .navbar-nav .divider {
+    height: 1px;
+    margin: 9px 0;
+    overflow: hidden;
+    background-color: #e5e5e5;
+  }
+}

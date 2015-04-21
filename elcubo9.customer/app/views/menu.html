@@ -1,0 +1,179 @@
+﻿<div class="page-header">
+    <ul class="list-inline pull-right">
+        <li>
+            <button class="btn btn-primary " role="button" ng-click="new()">
+                <span class="glyphicon glyphicon-plus-sign"></span> Nuevo Item en el Menú
+            </button>
+        </li>
+    </ul>
+    <h1>Menu</h1>
+</div>
+<div class="panel-group" id="accordion">
+    <div class="panel panel-default" ng-repeat="item in data">
+        <div class="panel-heading">
+            <div class="panel-title">
+                <form class="form-inline" role="form">
+                    <div class="form-group" ng-hide="item.edit">
+                        <a data-toggle="collapse" data-parent="#accordion" href="" data-target="#collapse-{{item.MenuTagID}}">
+                            {{item.MenuTagName}}
+                        </a>
+                    </div>
+                    <div class="form-group" ng-show="item.edit">
+                        <input class="form-control" ng-model="item.MenuTagName" />
+                    </div>
+                    <div class="form-group" ng-show="item.edit">
+                        <button class="btn btn-default" ng-click="updateTag(item)">
+                            <i class="glyphicon glyphicon-floppy-disk"></i>
+                        </button>
+                    </div>
+                    <div class="form-group" ng-hide="item.edit">
+                        <button class="btn btn-default" ng-click="item.edit=true">
+                            <i class="glyphicon glyphicon-edit"></i>
+                        </button>
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-primary" ng-click="new(item)">
+                            <i class="glyphicon glyphicon-plus"></i>
+                        </button>
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-danger" ng-click="removeTag(item)">
+                            <i class="glyphicon glyphicon-remove"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div id="collapse-{{item.MenuTagID}}" class="panel-collapse collapse in">
+            <div class="panel-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover table-striped">
+                        <tbody>
+                            <tr ng-repeat="menu in item.Menus">
+                                <td>
+                                    <p>{{menu.Title}}</p>
+                                    <small>{{menu.Subtitle}}</small>
+                                </td>
+                                <td>
+                                    {{Symbol}} {{menu.Price}}
+                                </td>
+
+                                <td>
+                                    <form class="form-inline" role="form">
+                                        <div class="form-group">
+                                            <button class="btn btn-default" ng-click="editItem(menu)">
+                                                <i class="glyphicon glyphicon-edit"></i>
+                                            </button>
+                                        </div>
+                                        <div class="form-group">
+                                            <button class="btn btn-danger" ng-click="removeItem(menu)">
+                                                <i class="glyphicon glyphicon-remove"></i>
+                                            </button>
+                                        </div>
+                                        <div class="form-group">
+                                            <button class="btn btn-primary" ng-click="addAdditional(menu)">
+                                                <i class="glyphicon glyphicon-plus"></i> Agregar Adicionales
+                                            </button>
+                                        </div>
+                                    </form>
+                                </td>
+                                <td>
+
+                                    <button class="btn btn-primary" ng-show="!menu.Disabled" ng-click="disable(menu,true)">
+                                        <i class="fa fa-lock"></i> Deshabilitar
+                                    </button>
+                                    <button class="btn btn-danger" ng-hide="!menu.Disabled" ng-click="disable(menu,false)">
+                                        <i class="fa fa-unlock"></i> Habilitar
+                                    </button>
+                                </td>
+                                <td>
+                                    <div ng-repeat="ma in menu.Items">
+                                        <form class="form-inline" role="form">
+                                            <div class="form-group">
+                                                <label>
+                                                    <i class="glyphicon glyphicon-asterisk" ng-if="ma.Required"></i>
+                                                    {{ma.MenuAdditionalName}}
+                                                </label>
+                                            </div>
+                                            <div class="form-group">
+                                                <button class="btn btn-danger btn-xs" ng-click="removeAdditional(ma)">
+                                                    <i class="glyphicon glyphicon-remove"></i>
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="modal-new" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Datos de Item en el Menú</h4>
+            </div>
+            <div class="modal-body">
+                <form ng-submit="save()">
+                    <div class="form-group">
+                        <label>Título</label>
+                        <input type="text" class="form-control" placeholder="Escriba el Título" ng-model="menu.Title" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Subtítulo</label>
+                        <textarea class="form-control" placeholder="Escriba el Subtítulo" ng-model="menu.Subtitle" ></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Categoría</label>
+                        <input type="text" class="form-control" placeholder="Escriba la Categoría" ng-model="menu.Tag" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Precio</label>
+                        <input type="text" class="form-control" placeholder="Precio" ng-model="menu.Price" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Guardar Item en el Menú" class="btn btn-primary" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="modal-additional" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Agregar Adicionales</h4>
+            </div>
+            <div class="modal-body">
+                <form ng-submit="saveAdditional()">
+                    <div class="form-group">
+                        Menu: <label class="text-center label label-info">{{ma.Title}}</label>
+                    </div>
+                    <div class="form-group">
+                        <label>Seleccione Adicional</label>
+                        <select class="form-control" ng-model="ma.Additional" ng-options="item.AdditionalName for item in adds track by item.AdditionalID" required></select>
+                    </div>
+                    <div class="form-group">
+                        <label>Nombre del Adicional</label>
+                        <input type="text" class="form-control" placeholder="Escriba el Subtítulo" ng-model="ma.MenuAdditionalName" required>
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" data-ng-model="ma.Required"> Requerido?
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Agregar Adicional" class="btn btn-primary" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

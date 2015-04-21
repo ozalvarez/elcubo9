@@ -1,0 +1,44 @@
+﻿<div class="page-header">
+    <ul class="list-inline pull-right">
+        <li ng-show="connected">
+            <label class="label label-success">
+                Conectado - {{ConnectionID}}
+            </label>
+        </li>
+        <li ng-hide="connected">
+            <label class="label label-danger">
+                Desconectado
+            </label>
+        </li>
+        <li>
+            <button class="btn btn-primary " role="button" ng-click="refresh()">
+                <span class="glyphicon glyphicon-refresh"></span> Refrescar
+            </button>
+        </li>
+    </ul>
+    <h1>Connections <span class="label label-primary">{{data.length}} Actives</span></h1>
+</div>
+<div class="table-responsive">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ConnectionID</th>
+                <th>UserName</th>
+                <th>Connected</th>
+                <th>FROM</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="item in data">
+                <td>{{item.ConnectionId}}</td>
+                <td>{{item.UserName}}</td>
+                <td>{{item.DateConnected | fromNow}}</td>
+                <td>
+                    <span ng-if="item.Type==0">WEB</span>
+                    <span ng-if="item.Type==1">CUSTOMER</span>
+                    <span ng-if="item.Type==2">ADMIN</span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

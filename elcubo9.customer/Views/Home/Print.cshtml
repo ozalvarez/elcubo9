@@ -1,0 +1,50 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+
+<html data-ng-app="app">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Imprimir Orden</title>
+    @Styles.Render("~/content/print")
+</head>
+<body>
+    <div data-ng-controller="printController">
+        <div>
+            Orden de elCubo9
+        </div>
+        <div>
+            Mesa: <b>{{data.TableNumber}}</b>
+        </div>
+        <div>
+            Usuario: <b>{{data.NameOfUser}}</b>
+        </div>
+        <div>
+            ID Orden: <b>{{data.OrderID}}</b>
+        </div>
+        ----------PEDIDO---------
+        <div ng-repeat="item in data.Items">
+            <div>
+                <b>{{item.Quantity}}</b> - <b>{{item.Title}}</b>
+                <b ng-show="item.Items">Adicionales</b>
+                <div ng-repeat="add in item.Items">
+                    <div>
+                        {{add.AdditionalItemName}} - <small>$ {{add.Price}}</small>
+                    </div>
+                </div>
+            </div>
+            -----------------------------
+        </div>
+    </div>
+    <script>
+        var APIURL = '@APP._API_URL';
+    </script>
+    @Scripts.Render("~/bundles/print")
+    @Scripts.Render("~/bundles/print/angular")
+</body>
+</html>

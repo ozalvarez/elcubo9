@@ -1,0 +1,50 @@
+﻿<div class="page-header">
+    <ul class="list-inline pull-right">
+        <li>
+            <form class="form-inline pull-right" role="form" ng-submit="search()">
+                <div class="form-group">
+                    <label class="sr-only">Search</label>
+                    <input type="text" class="form-control" placeholder="Search" ng-model="text">
+                </div>
+            </form>
+        </li>
+    </ul>
+    <h1>Users</h1>
+</div>
+<section>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Username @</th>
+                    <th>Email</th>
+                    <th>#Orders</th>
+                    <th>Date Created</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="item in users">
+                    <td>{{item.Name}}</td>
+                    <td>{{item.Username}}</td>
+                    <td>{{item.Email}}</td>
+                    <td>{{item.NumOrders}}</td>
+                    <td class="small">
+                        <div>{{item.DateCreated  | fromNow}}</div>
+                        {{item.DateCreated  | format}}
+                    </td>
+                    <td>
+                        <button class="btn btn-primary" ng-show="!item.Block" ng-click="block(item,true)">
+                            <i class="fa fa-lock"></i> Block
+                        </button>
+                        <button class="btn btn-danger" ng-hide="!item.Block" ng-click="block(item,false)">
+                            <i class="fa fa-unlock"></i> Unblock
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <button class="btn btn-default center-block" role="button" ng-click="more()" ng-disabled="disabledMore">Mas Usuarios</button>
+    </div>
+</section>

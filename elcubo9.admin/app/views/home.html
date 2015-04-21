@@ -1,0 +1,40 @@
+﻿<div class="page-header">
+    <!--<ul class="list-inline pull-right">
+        <li >
+            <button class="btn btn-primary " role="button" ng-click="new()">
+                <span class="glyphicon glyphicon-plus-sign"></span> New Customer
+            </button>
+        </li>
+    </ul>-->
+    <h1>Home</h1>
+</div>
+<section >
+    <div class="row placeholders">
+        <div class="col-xs-6 col-sm-3 placeholder">
+            <h4 ng-cloak>{{numUsers}}</h4>
+            <span class="text-muted">#Users</span>
+        </div>
+        <div class="col-xs-6 col-sm-3 placeholder">
+            <h4 ng-cloak>{{numUsersDay}}</h4>
+            <span class="text-muted">#Users Today ({{dateDay | date:"MM/dd/yyyy"}})</span>
+        </div>
+        <div class="col-xs-6 col-sm-3 placeholder">
+            <h4 ng-cloak>{{numUsersPeriod}}</h4>
+            <span class="text-muted">#Users Period</span>
+            <hr />
+            <div class="input-daterange input-group" id="datepicker">
+                <input type="text" class="input-sm form-control" name="start" ng-model='start' />
+                <span class="input-group-addon">to</span>
+                <input type="text" class="input-sm form-control" name="end" ng-model="end" />
+            </div>
+            <hr />
+            <button class="btn btn-default btn-block" type="button" ng-click="getNumUsersByPeriod()">Go!</button>
+        </div>
+    </div>
+</section>
+<script>
+        $('.input-daterange').datepicker({
+            todayBtn: true,
+            todayHighlight: true
+        });
+</script>

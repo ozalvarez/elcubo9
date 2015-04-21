@@ -1,0 +1,82 @@
+﻿<div class="page-header">
+    <ul class="list-inline pull-right">
+        <li>
+            <button class="btn btn-primary " role="button" ng-click="refresh()">
+                <span class="glyphicon glyphicon-refresh"></span> Refrescar Ordenes
+            </button>
+        </li>
+    </ul>
+    <h1>Órdenes</h1>
+</div>
+<div class="table-responsive">
+    <table class="table table-bordered table-hover table-striped">
+        <thead>
+            <tr>
+                <th>Mesa</th>
+                <th></th>
+                <th>Fecha</th>
+                <th>ESTADO</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="item in data | filter:filterList">
+                <td>{{item.TableNumber}}</td>
+                <td>
+                    <button class="btn btn-default" ng-click="openOrder(item,$index)">
+                        <i class="glyphicon glyphicon-eye-open"></i>
+                        Ver Orden - {{item.OrderID}}
+                    </button>
+                </td>
+                <td>{{item.DateOrder | fromNow}}</td>
+                <td>
+                    <button class="btn btn-primary" ng-show="item.OrderStatus==1" ng-click="changeStatus(item,2,$index)">
+                        Notificar [RECIBIDO]
+                    </button>
+                    <button class="btn btn-primary" ng-show="item.OrderStatus==5" ng-click="print(item.OrderID)">
+                        POR IMPRIMIR
+                    </button>
+                    <button class="btn btn-default" ng-show="item.OrderStatus==2" ng-click="changeStatus(item,3,$index)">
+                        Ya Entregada a la Mesa
+                    </button>
+                    <button class="btn btn-danger" ng-show="item.OrderStatus==1 || item.OrderStatus==5 || item.OrderStatus==2" ng-click="changeStatus(item,4,$index)">
+                        Orden Inválida
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="modal fade" id="modal-order" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">ORDEN</h4>
+            </div>
+            <div class="modal-body">
+                <p class="alert alert-info text-center lead">
+                    Mesa: {{order.TableNumber}} - Cliente: {{order.NameOfUser}}
+                </p>
+                <div ng-repeat="item in order.Items">
+                    <p class="lead">
+                        {{item.Quantity}} - {{item.Title}} - <small>{{Symbol}} {{item.Price}}</small>
+                    </p>
+                    <b ng-show="item.Items.length>0">Adicionales</b>
+                    <div ng-repeat="add in item.Items">
+                        <p>
+                            {{add.AdditionalItemName}} - <small>{{Symbol}} {{add.Price}}</small>
+                        </p>
+                    </div>
+                    <p class="lead">
+                        {{item.AdditionalInfo}}
+                    </p>
+                    <hr />
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" ng-disabled="order.OrderStatus!=1" class="btn btn-primary btn-lg btn-block" ng-click="changeStatus(order,2,order.$index)">Notificar [RECIBIDO]</button>
+                <button type="button" class="btn btn-default btn-lg btn-block" data-dismiss="modal" aria-hidden="true">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,225 @@
+﻿<!DOCTYPE html>
+<html lang="en" data-ng-app="app">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>El Cubo 9 - Portal clientes</title>
+    @Styles.Render("~/content/app")
+    @Scripts.Render("~/bundles/modernizr")
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-56026603-2', 'auto');
+        ga('send', 'pageview');
+
+    </script>
+
+    <div id="wrapper" data-ng-controller="appController">
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#/">{{customer.CustomerName}}</a>
+            </div>
+
+            <ul class="nav navbar-top-links navbar-right">
+                <li ng-show="connected">
+                    <label class="label label-success">
+                        Conectado - {{ConnectionID}}
+                    </label>
+                </li>
+                <li ng-hide="connected">
+                    <label class="label label-danger">
+                        Desconectado
+                    </label>
+                </li>
+                <li class="dropdown">
+                    <div ng-if="customers.length==1">
+                        <i class="fa fa-institution"></i> {{customer.CustomerName}}
+                    </div>
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="" ng-if="customers.length>1">
+                        <i class="fa fa-institution"></i> {{customer.CustomerName}}  <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu" ng-if="customers.length>1">
+                        <li ng-repeat="item in customers">
+                            <a href="" ng-click="changeCustomer(item)">
+                                <i class="fa fa-institution"></i> {{item.CustomerName}}
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="">
+                        <i class="fa fa-user fa-fw"></i>  {{authentication.userName}} <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li>
+                            <a href="#/password">
+                                <i class="glyphicon glyphicon-lock"></i> Cambiar Clave
+                            </a>
+                        </li>
+                        <li>
+                            <a href="mailto:questions@uservoice.com" data-uv-trigger>
+                                <i class="glyphicon glyphicon-envelope"></i> Mensaje a El Cubo 9
+                            </a>
+                        </li>
+                        <li>
+                            <a href="" ng-click="openTerms()">
+                                <i class="fa fa-cogs"></i> Terminos y Condiciones
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="" data-ng-click="logOut()"><i class="fa fa-sign-out fa-fw"></i> Cerrar Sesión</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="navbar-default sidebar" role="navigation">
+                <div class="sidebar-nav navbar-collapse">
+                    <ul class="nav" id="side-menu">
+                        <li ng-show="customer.Roles.indexOf(1)!=-1">
+                            <a href="#/">
+                                <i class="fa fa-bell fa-fw"></i> Ordenes
+                            </a>
+                        </li>
+                        <li ng-show="customer.Roles.indexOf(2)!=-1">
+                            <a href="#/menu">
+                                <i class="fa fa-cutlery fa-fw"></i> Menu
+                            </a>
+                        </li>
+                        <li ng-show="customer.Roles.indexOf(2)!=-1">
+                            <a href="#/additional"><i class="fa fa-file-text fa-fw"></i> Menu Adicionales</a>
+                        </li>
+                        <li ng-show="customer.Roles.indexOf(4)!=-1">
+                            <a href="#/configuration"><i class="fa fa-gear fa-fw"></i> Configuración</a>
+                        </li>
+                        <li>
+                            <a href="#/report-orders">
+                                <i class="fa fa-bell fa-fw"></i> Reporte de Ordenes
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-question  fa-fw"></i>
+                                Soporte, Mensajes e Ideas<span class="fa arrow"></span>
+                            </a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="https://elcubo9.uservoice.com" data-uv-trigger="contact">
+                                        <i class="fa fa-question fa-fw"></i> Envianos un Mensaje
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://elcubo9.uservoice.com" data-uv-trigger="smartvote">
+                                        <i class="fa fa-lightbulb-o fa-fw"></i> Déjanos tu Idea
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://elcubo9.uservoice.com" data-uv-trigger="satisfaction">
+                                        <i class="fa fa-thumbs-o-up fa-fw"></i> ¿Cómo te parece elcubo9?
+                                    </a>
+                                </li>
+                            </ul>
+
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div id="page-wrapper" data-ng-view="">
+
+        </div>
+        <div class="modal fade" id="modal-terms" tabindex="-1" role="dialog" aria-labelledby="modal-terms-label" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="modal-terms-label">Términos y Condiciones</h4>
+                    </div>
+                    <div class="modal-body">
+                        @Html.Partial("_Terms")
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var APIURL = '@APP._API_URL';
+    </script>
+    @Scripts.Render("~/bundles/app")
+    @Scripts.Render("~/bundles/app/angular")
+    <script type="text/javascript" src="~/Scripts/jquery.signalR-2.2.0.min.js"></script>
+    <script type="text/javascript" src="@(APP._API_URL)signalr/hubs"></script>
+    <script>
+        // Include the UserVoice JavaScript SDK (only needed once on a page)
+        UserVoice = window.UserVoice || []; (function () { var uv = document.createElement('script'); uv.type = 'text/javascript'; uv.async = true; uv.src = '//widget.uservoice.com/f1QYDNe9kGAu5VAezbQqeg.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(uv, s) })();
+
+        //
+        // UserVoice Javascript SDK developer documentation:
+        // https://www.uservoice.com/o/javascript-sdk
+        //
+
+        // Set colors
+        UserVoice.push(['set', {
+            accent_color: '#e23a39',
+            trigger_color: 'white',
+            trigger_background_color: 'rgba(46, 49, 51, 0.6)'
+        }]);
+
+        // Identify the user and pass traits
+        // To enable, replace sample data with actual user traits and uncomment the line
+        UserVoice.push(['identify', {
+            //email:      'john.doe@example.com', // User’s email address
+            //name:       'John Doe', // User’s real name
+            //created_at: 1364406966, // Unix timestamp for the date the user signed up
+            //id:         123, // Optional: Unique id of the user (if set, this should not change)
+            //type:       'Owner', // Optional: segment your users by type
+            //account: {
+            //  id:           123, // Optional: associate multiple users with a single account
+            //  name:         'Acme, Co.', // Account name
+            //  created_at:   1364406966, // Unix timestamp for the date the account was created
+            //  monthly_rate: 9.99, // Decimal; monthly rate of the account
+            //  ltv:          1495.00, // Decimal; lifetime value of the account
+            //  plan:         'Enhanced' // Plan name for the account
+            //}
+        }]);
+
+        // Add default trigger to the bottom-right corner of the window:
+        UserVoice.push(['addTrigger', { mode: 'contact', trigger_position: 'bottom-right' }]);
+
+        // Or, use your own custom trigger:
+        //UserVoice.push(['addTrigger', '#id', { mode: 'contact' }]);
+
+        // Autoprompt for Satisfaction and SmartVote (only displayed under certain conditions)
+        UserVoice.push(['autoprompt', {}]);
+    </script>
+
+</body>
+
+</html>

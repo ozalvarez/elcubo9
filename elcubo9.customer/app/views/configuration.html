@@ -1,0 +1,28 @@
+﻿<div class="page-header">
+    <h1>Configuración</h1>
+</div>
+<div class="row">
+    <div class="col-md-4">
+        <div class="panel panel-default">
+            <div class="panel-heading">Emails</div>
+            <div class="panel-body">
+                <form role="form" ng-submit="addEmail()">
+                    <div class="form-group">
+                        <input type="email" class="form-control" placeholder="Enter email" ng-model="email.Email">
+                    </div>
+                    <button type="submit" class="btn btn-default btn-block">Agregar</button>
+                </form>
+                <table class="table margin-top-5">
+                    <tr ng-repeat="item in emails">
+                        <td>{{item.Email}}</td>
+                        <td>
+                            <button type="button" class="btn btn-danger btn-xs" ng-click="removeEmail(item.CustomerEmailID)">
+                                <i class="glyphicon glyphicon-remove-circle"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

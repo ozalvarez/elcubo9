@@ -1,0 +1,88 @@
+﻿<div class="page-header">
+    <ul class="list-inline pull-right">
+        <li>
+            <button class="btn btn-primary " role="button" ng-click="refresh()">
+                <span class="glyphicon glyphicon-refresh"></span> Refrescar Ordenes
+            </button>
+        </li>
+    </ul>
+    <h1>Listado de Todas las Órdenes</h1>
+</div>
+<div class="table-responsive">
+    <table class="table table-bordered table-hover table-striped">
+        <thead>
+            <tr>
+                <th>Customer</th>
+                <th>Mesa</th>
+                <th></th>
+                <th>Fecha</th>
+                <th>Recibida en</th>
+                <th>ESTADO</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="item in data | filter:filterList">
+                <td>{{item.CustomerName}}</td>
+                <td>{{item.TableNumber}}</td>
+                <td>
+                    <button class="btn btn-default" ng-click="openOrder(item,$index)">
+                        <i class="glyphicon glyphicon-eye-open"></i>
+                        Ver Orden - {{item.OrderID}}
+                    </button>
+                </td>
+                <td class="small">
+                    <div>{{item.DateOrder | fromNow}}</div>
+                    {{item.DateOrder | format}}
+                </td>
+                <td class="small">
+                    <span class="label label-success" ng-show="item.TimeInReceive<10 && item.Received">{{item.TimeInReceive}} SEG</span>
+                    <span class="label label-warning" ng-show="item.TimeInReceive>=10 && item.Received">{{item.TimeInReceive}} SEG</span>
+                    <span class="label label-danger" ng-show="!item.Received">NO HA SIDO RECIBIDA</span>
+
+                </td>
+                <td>
+                    <span class="label label-warning" ng-show="item.OrderStatus==1">CREADA</span>
+                    <span class="label label-success" ng-show="item.OrderStatus==2">RECIBIDO</span>
+                    <span class="label label-default" ng-show="item.OrderStatus==3">EN LA MESA</span>
+                    <span class="label label-info" ng-show="item.OrderStatus==4">INVÁLIDA</span>
+                    <span class="label label-warning" ng-show="item.OrderStatus==5">POR IMPRIMIR</span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <button class="btn btn-default center-block" role="button" ng-click="more()" ng-disabled="disabledMore">Mas Órdenes</button>
+</div>
+<div class="modal fade" id="modal-order" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">ORDEN</h4>
+            </div>
+            <div class="modal-body">
+                <p class="alert alert-info text-center lead">
+                    Mesa: {{order.TableNumber}} - Cliente: {{order.NameOfUser}}
+                </p>
+                <div ng-repeat="item in order.Items">
+                    <p class="lead">
+                        {{item.Quantity}} - {{item.Title}} - <small>$ {{item.Price}}</small>
+                    </p>
+                    <b ng-show="item.Items.length>0">Adicionales</b>
+                    <div ng-repeat="add in item.Items">
+                        <p>
+                            {{add.AdditionalItemName}} - <small>$ {{add.Price}}</small>
+                        </p>
+                    </div>
+                    <p class="lead">
+                        {{item.AdditionalInfo}}
+                    </p>
+                    <hr />
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" ng-disabled="order.OrderStatus!=1" class="btn btn-primary btn-lg btn-block" ng-click="changeStatus(order,2,order.$index)">Notificar [RECIBIDO]</button>
+                <button type="button" class="btn btn-default btn-lg btn-block" data-dismiss="modal" aria-hidden="true">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
