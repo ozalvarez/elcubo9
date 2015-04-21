@@ -5,4 +5,4 @@ This is an app where people can order in restaurant, bar, etc from their table w
 Soon..
 
 ##Website
-http://elcubo9.com [http://elcubo9.com]
+http://elcubo9.com
