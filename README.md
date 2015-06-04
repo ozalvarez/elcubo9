@@ -34,7 +34,7 @@ http://elcubo9.com
 http://app.elcubo9.com
 
 ## Android APP
-Is under development
+For Users https://github.com/ozalvarez/elcubo9-users-android
 
 #Social Networks & Blog
 * https://instagram.com/elcubo9/
