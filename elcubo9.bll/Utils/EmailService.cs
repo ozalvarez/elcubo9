@@ -1,6 +1,7 @@
 ﻿using SendGrid;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Net;
 using System.Net.Mail;
@@ -45,7 +46,7 @@ namespace elcubo9.bll.Utils
         }
         private void Deliver(SendGridMessage myMessage)
         {
-            var credentials = new NetworkCredential("azure_cef20b4d17625ef6b4b89b663ead4fc3@azure.com", "gfu7rv725B7EgRp");
+            var credentials = new NetworkCredential(ConfigurationManager.AppSettings["SendGrid.UserName"], ConfigurationManager.AppSettings["SendGrid.Password"]);
             var transportWeb = new Web(credentials);
             transportWeb.Deliver(myMessage);
         }
