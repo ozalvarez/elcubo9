@@ -24,7 +24,7 @@ namespace elcubo9.data.Migrations
             ApplicationUser userRoot = null;
             if (userManager.FindByName("oz@elcubo9.com") == null)
             {
-                userRoot = new ApplicationUser { UserName = "oz@elcubo9.com", Email = "oz@elcubo9.com" };
+                userRoot = new ApplicationUser { UserName = "oz@elcubo9.com", Email = "oz@elcubo9.com", DateCreated = DateTime.Now, Block = false };
                 userManager.Create(userRoot, "123456");
 
                 roleManager.Create(new IdentityRole { Name = "admin" });
